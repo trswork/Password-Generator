@@ -37,36 +37,7 @@ function writePassword() {
             password += randomChar;
             passwordArray.push(randomChar);
         }
-    
-        checkPassword();
-    
-        function checkPassword() {
-            var missingValueArray = [];
-            var containsAll = true;
-    
-            options.forEach(function (e, i, a) {
-                var hasValue = false;
-                passwordArray.forEach(function (e1, i1, a1) {
-                    if (e.indexOf(e1) > -1) {
-                        hasValue = true;
-                    }
-                });
-    
-                if (!hasValue) {
-                    missingValueArray = a;
-                    containsAll = false;
-                }
-            });
-    
-            if (!containsAll) {
-                passwordArray[Math.floor(Math.random() * passwordArray.length)] = missingValueArray.charAt(Math.floor(Math.random() * missingValueArray.length));
-                password = "";
-                passwordArray.forEach(function (e, i, a) {
-                    password += e;
-                });
-                checkPassword();
-            }
-        }
+
     
     return password;
 }
